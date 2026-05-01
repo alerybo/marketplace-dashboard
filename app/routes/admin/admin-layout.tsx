@@ -1,14 +1,17 @@
-import React from "react";
 import { Outlet } from "react-router";
+import { AppSidebar } from "~/components";
+import { SidebarProvider } from "~/components/ui/sidebar";
 
 const AdminLayout = () => {
   return (
     <div className="admin-layout">
-      MobileSidebar
-      <aside className="w-full max-w-67.5 hidden lg:block">Sidebar</aside>
-      <aside className="children">
-        <Outlet />
-      </aside>
+      {/* MobileSidebar */}
+      <SidebarProvider>
+        <AppSidebar />
+        <aside className="children">
+          <Outlet />
+        </aside>
+      </SidebarProvider>
     </div>
   );
 };
